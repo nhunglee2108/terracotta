@@ -1,0 +1,9 @@
+JOB = [name:"job1"]
+FETCHACTION = {
+	def now = new Date().format("yyyy-MM-dd HH:mm:ss")
+	return [
+		time: now,
+		message: "This is job 3333"
+		]
+}
+DEST=[ [ file: "stdout" ] ]

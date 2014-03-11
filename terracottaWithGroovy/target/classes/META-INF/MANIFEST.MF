@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1393822890899
+Build-Jdk: 1.6.0_45
+Built-By: dothihuong
+Bundle-Activator: terracottawithgroovy.Activator
+Bundle-ManifestVersion: 2
+Bundle-Name: terracottaWithGroovy
+Bundle-SymbolicName: terracottaWithGroovy
+Bundle-Version: 0.0.1.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: terracottawithgroovy;version="0.0.1.SNAPSHOT"
+Import-Package: org.quartz.impl;version="[2.2,3)",terracottawithgroovy
+Tool: Bnd-1.50.0

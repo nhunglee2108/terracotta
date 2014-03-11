@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+  <name>terracottaWithGroovy</name>
+  <comment>NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
+  <projects/>
+  <buildSpec>
+    <buildCommand>
+      <name>org.eclipse.jdt.core.javabuilder</name>
+    </buildCommand>
+    <buildCommand>
+      <name>org.eclipse.pde.ManifestBuilder</name>
+    </buildCommand>
+    <buildCommand>
+      <name>org.eclipse.pde.SchemaBuilder</name>
+    </buildCommand>
+    <buildCommand>
+      <name>org.eclipse.m2e.core.maven2Builder</name>
+    </buildCommand>
+  </buildSpec>
+  <natures>
+    <nature>org.eclipse.jdt.groovy.core.groovyNature</nature>
+    <nature>org.eclipse.m2e.core.maven2Nature</nature>
+    <nature>org.eclipse.pde.PluginNature</nature>
+    <nature>org.eclipse.jdt.core.javanature</nature>
+  </natures>
+  <linkedResources>
+    <link>
+      <name>terracotta-toolkit-runtime-4.1.1.jar</name>
+      <type>1</type>
+      <location>C:/Documents and Settings/dothihuong/.m2/repository/org/terracotta/terracotta-toolkit-runtime/4.1.1/terracotta-toolkit-runtime-4.1.1.jar</location>
+    </link>
+    <link>
+      <name>build-data-4.1.1.jar</name>
+      <type>1</type>
+      <location>C:/Documents and Settings/dothihuong/.m2/repository/org/terracotta/internal/build-data/4.1.1/build-data-4.1.1.jar</location>
+    </link>
+    <link>
+      <name>toolkit-express-impl-4.1.1.jar</name>
+      <type>1</type>
+      <location>C:/Documents and Settings/dothihuong/.m2/repository/org/terracotta/internal/toolkit-express-impl/4.1.1/toolkit-express-impl-4.1.1.jar</location>
+    </link>
+    <link>
+      <name>terracotta-toolkit-api-2.5.jar</name>
+      <type>1</type>
+      <location>C:/Documents and Settings/dothihuong/.m2/repository/org/terracotta/toolkit/terracotta-toolkit-api/2.5/terracotta-toolkit-api-2.5.jar</location>
+    </link>
+    <link>
+      <name>terracotta-toolkit-api-internal-1.12.jar</name>
+      <type>1</type>
+      <location>C:/Documents and Settings/dothihuong/.m2/repository/org/terracotta/toolkit/terracotta-toolkit-api-internal/1.12/terracotta-toolkit-api-internal-1.12.jar</location>
+    </link>
+    <link>
+      <name>c3p0-0.9.1.1.jar</name>
+      <type>1</type>
+      <location>C:/Documents and Settings/dothihuong/.m2/repository/c3p0/c3p0/0.9.1.1/c3p0-0.9.1.1.jar</location>
+    </link>
+  </linkedResources>
+</projectDescription>

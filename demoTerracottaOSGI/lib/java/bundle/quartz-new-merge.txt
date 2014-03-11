@@ -1,0 +1,27 @@
+List bundle merge to quartz:
+	bsh-2.0b4.jar
+	build-data-4.1.1.jar
+	common-4.1.1.jar
+	commons-cli-1.1.jar
+	commons-io-2.4.jar
+	commons-lang-2.0.jar
+	dso-cluster-api-4.1.1.jar
+	dso-common-4.1.1.jar
+	dso-l1-4.1.1.jar
+	dso-l1-api-4.1.1.jar
+	ehcache-core-2.8.1.jar
+	guava-13.0.1.jar
+	jmxremote_optional-tc-1.0.4.jar
+	log4j-1.2.16.jar
+	management-4.1.1.jar
+	quartz-2.2.1.jar
+	search-1.4.5.jar
+	statistics-1.0.1.jar
+	tcconfig-4.2.2.jar
+	tc-l1-reconnect-properties-4.2.2.jar
+	terracotta-toolkit-api-2.5.jar
+	terracotta-toolkit-api-internal-1.12.jar
+	terracotta-toolkit-impl-4.1.1.jar
+	terracotta-toolkit-runtime-4.1.1.jar
+	toolkit-express-impl-4.1.1.jar
+	xmlbeans-2.4.0.jar
