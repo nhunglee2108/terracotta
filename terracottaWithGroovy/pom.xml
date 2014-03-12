@@ -3,6 +3,38 @@
   <groupId>terracottaWithGroovy</groupId>
   <artifactId>terracottaWithGroovy</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
+   <dependencies>
+     <dependency>
+  		<groupId>org.osgi</groupId>
+  		<artifactId>osgi_R4_core</artifactId>
+  		<version>1.0</version>
+  		<type>jar</type>
+  		<scope>compile</scope>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.osgi</groupId>
+  		<artifactId>osgi_R4_compendium</artifactId>
+  		<version>1.0</version>
+  		<type>jar</type>
+  		<scope>compile</scope>
+  	</dependency>
+  	<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-all</artifactId>
+			<version>2.1.6</version>
+		</dependency>
+   	<dependency>
+	   	<groupId>org.terracotta</groupId>
+	     <artifactId>terracotta-toolkit-runtime</artifactId>
+	     <version>4.1.1</version>
+	</dependency>
+   	<dependency>
+   		<groupId>org.quartz-scheduler</groupId>
+   		<artifactId>quartz</artifactId>
+   		<version>2.2.1</version>
+   	</dependency>
+   </dependencies>
   <build>
     <sourceDirectory>src</sourceDirectory>
     <resources>
@@ -15,35 +47,6 @@
 		</resource>
 	</resources>
     <plugins>
-      <plugin>
-      	<groupId>org.apache.felix</groupId>
-      	<artifactId>maven-bundle-plugin</artifactId>
-      	<version>2.3.7</version>
-      	<extensions>true</extensions>
-      	<configuration>
-           <instructions>
-               <Bundle-SymbolicName>
-                   ${project.artifactId}
-               </Bundle-SymbolicName>
-               <Bundle-Activator>
-                   terracottawithgroovy.Activator
-               </Bundle-Activator>
-               <Import-Package>terracottawithgroovy,org.quartz.impl</Import-Package>
-               <Export-Package>terracottawithgroovy</Export-Package>
-               <Private-Package>
-                   terracottawithgroovy
-               </Private-Package>
-           </instructions>
-           	<sources>
-				<fileset>
-					<directory>${pom.basedir}/src</directory>
-					<includes>
-						<include>**/*.groovy</include>
-					</includes>
-				</fileset>
-			</sources>
-       </configuration>
-      </plugin>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<!-- 2.8.0-01 and later require maven-compiler-plugin 3.1 or higher -->
@@ -71,6 +74,44 @@
 					</dependency>
 				</dependencies>
 			</plugin>
+			      <plugin>
+	      	<groupId>org.apache.felix</groupId>
+	      	<artifactId>maven-bundle-plugin</artifactId>
+	      	<version>2.3.7</version>
+	      	<extensions>true</extensions>
+	      	<configuration>
+	           <instructions>
+	               <Bundle-SymbolicName>
+	                   ${project.artifactId}
+	               </Bundle-SymbolicName>
+	               <Bundle-Activator>
+	                   terracottawithgroovy.Activator
+	               </Bundle-Activator>
+	               <Import-Package>groovy.lang, org.codehaus.groovy.reflection, org.codehaus.groovy.runtime, org.codehaus.groovy.runtime.callsite, org.osgi.framework, org.quartz, org.quartz.impl</Import-Package>
+	               <Export-Package>terracottawithgroovy</Export-Package>
+	               <Private-Package>
+	                   terracottawithgroovy
+	               </Private-Package>
+	               <_include>-osgi.bnd</_include>
+	           </instructions>
+	           	<sources>
+					<fileset>
+						<directory>${pom.basedir}/src</directory>
+						<includes>
+							<include>**/*.groovy</include>
+						</includes>
+					</fileset>
+				</sources>
+	       </configuration>
+	       <executions>
+                <execution>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>bundle</goal>
+                    </goals>
+                </execution>
+            </executions>
+	      </plugin>
     </plugins>
   </build>
   <repositories>
@@ -83,21 +124,4 @@
       <url>http://192.168.0.172:8081/artifactory/simple/ext-release-local</url>
     </repository> -->
   </repositories>
-   <dependencies>
-  			<dependency>
-			<groupId>org.codehaus.groovy</groupId>
-			<artifactId>groovy-all</artifactId>
-			<version>2.1.6</version>
-		</dependency>
-   	<dependency>
-	   	<groupId>org.terracotta</groupId>
-	     <artifactId>terracotta-toolkit-runtime</artifactId>
-	     <version>4.1.1</version>
-	</dependency>
-   	<dependency>
-   		<groupId>org.quartz-scheduler</groupId>
-   		<artifactId>quartz</artifactId>
-   		<version>2.2.1</version>
-   	</dependency>
-   </dependencies>
 </project>

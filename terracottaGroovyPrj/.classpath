@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry exported="true" kind="con" path="GROOVY_SUPPORT"/>
+	<classpathentry exported="true" kind="con" path="GROOVY_DSL_SUPPORT"/>
+	<classpathentry kind="lib" path="lib/terracotta-toolkit-runtime-4.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="lib/slf4j-api_1.6.2.jar"/>
+	<classpathentry kind="lib" path="lib/slf4j-log4j12_1.6.2.jar"/>
+	<classpathentry kind="lib" path="lib/terracotta-toolkit-impl-4.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/toolkit-express-impl-4.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/terracotta-toolkit-api-2.5.jar"/>
+	<classpathentry kind="lib" path="lib/quartz-2.2.1.jar"/>
+	<classpathentry kind="lib" path="lib/terracotta-l1-4.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/terracotta-toolkit-api-internal-1.12.jar"/>
+	<classpathentry kind="lib" path="D:/TerraCotta/TestTerracotta4.1.1/lib/google-collections-1.0.jar"/>
+	<classpathentry kind="lib" path="D:/TerraCotta/TestTerracotta4.1.1/lib/common-4.1.1.jar"/>
+	<classpathentry kind="lib" path="D:/TerraCotta/TestTerracotta4.1.1/lib/dso-l1-api-4.1.1.jar"/>
+	<classpathentry kind="lib" path="D:/TerraCotta/TestTerracotta4.1.1/lib/dso-l1-4.1.1.jar"/>
+	<classpathentry kind="lib" path="D:/TerraCotta/TestTerracotta4.1.1/lib/dso-cluster-api-4.1.1.jar"/>
+	<classpathentry kind="lib" path="D:/TerraCotta/TestTerracotta4.1.1/lib/dso-common-4.1.1.jar"/>
+	<classpathentry kind="lib" path="D:/TerraCotta/TestTerracotta4.1.1/lib/guava-13.0.1.jar"/>
+	<classpathentry kind="lib" path="D:/TerraCotta/TestTerracotta4.1.1/lib/commons-io-2.4.jar"/>
+	<classpathentry kind="lib" path="D:/TerraCotta/TestTerracotta4.1.1/lib/ehcache-2.8.1.jar"/>
+	<classpathentry kind="lib" path="D:/TerraCotta/TestTerracotta4.1.1/lib/ehcache-core-2.8.1.jar"/>
+	<classpathentry kind="lib" path="D:/TerraCotta/TestTerracotta4.1.1/lib/xmlbeans-2.4.0.jar"/>
+	<classpathentry kind="lib" path="D:/TerraCotta/TestTerracotta4.1.1/lib/commons-lang-2.0.jar"/>
+	<classpathentry kind="lib" path="D:/TerraCotta/TestTerracotta4.1.1/lib/tcconfig-4.2.2.jar"/>
+	<classpathentry kind="lib" path="D:/TerraCotta/TestTerracotta4.1.1/lib/build-data-4.1.1.jar"/>
+	<classpathentry kind="lib" path="D:/TerraCotta/TestTerracotta4.1.1/lib/bsh-2.0b4.jar"/>
+	<classpathentry kind="lib" path="D:/TerraCotta/TestTerracotta4.1.1/lib/tc-l1-reconnect-properties-4.2.2.jar"/>
+	<classpathentry kind="lib" path="D:/TerraCotta/TestTerracotta4.1.1/lib/management-4.1.1.jar"/>
+	<classpathentry kind="lib" path="D:/TerraCotta/TestTerracotta4.1.1/lib/search-1.4.5.jar"/>
+	<classpathentry kind="lib" path="D:/TerraCotta/TestTerracotta4.1.1/lib/jmxremote_optional-tc-1.0.4.jar"/>
+	<classpathentry kind="lib" path="D:/TerraCotta/TestTerracotta4.1.1/lib/statistics-1.0.1.jar"/>
+	<classpathentry kind="lib" path="D:/TerraCotta/TestTerracotta4.1.1/lib/commons-cli-1.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
