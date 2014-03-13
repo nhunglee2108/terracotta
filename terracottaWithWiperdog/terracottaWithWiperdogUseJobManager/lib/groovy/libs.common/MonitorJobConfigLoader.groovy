@@ -15,11 +15,10 @@ class MonitorJobConfigLoader implements Serializable{
 	 * constructor
 	 */
 	public MonitorJobConfigLoader(BundleContext context) {
-		/*ServiceReference caRef = context.getServiceReference(ConfigurationAdmin.class.getName())
+		ServiceReference caRef = context.getServiceReference(ConfigurationAdmin.class.getName())
 		def configAdmin = context.getService(caRef)
 		def config = configAdmin.getConfiguration(ResourceConstants.SERVICE_PID)
-		Dictionary props = config.getProperties()*/
-		Dictionary props
+		Dictionary props = config.getProperties()
 		if (props != null) {
 			this.properties = props
 		} else {
