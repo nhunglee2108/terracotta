@@ -3,6 +3,13 @@
 #
 #
 basedir=`pwd`
+### Checking maven
+MVN_COMMAND=`which mvn`
+echo "Using maven command as path:" $MVN_COMMAND
+if [ ! -n "$MVN_COMMAND" ] || [ ! -x $MVN_COMMAND ];then
+  echo "Maven not found, please install the lastest version"
+  exit 1
+fi
 #echo " BASEDIR:" $basedir
   if [ ! -d terracotta-runtime-4.1.1 ] || [ ! -d ehcache-2.8.1 ] || [ ! -d quartz-2.2.1 ] || [ ! -d experimental ];then
     ### Checking subversion
@@ -17,13 +24,6 @@ basedir=`pwd`
     echo "Using github command as path:" $GIT_COMMAND
     if [ ! -n "$GIT_COMMAND" ] || [ ! -x $GIT_COMMAND ];then
       echo "GIT not found, please install the lastest version "
-      exit 1
-    fi
-    ### Checking maven
-    MVN_COMMAND=`which mvn`
-    echo "Using maven command as path:" $MVN_COMMAND
-    if [ ! -n "$MVN_COMMAND" ] || [ ! -x $MVN_COMMAND ];then
-      echo "Maven not found, please install the lastest version"
       exit 1
     fi
 
@@ -46,14 +46,14 @@ basedir=`pwd`
       $GIT_COMMAND clone https://github.com/wiperdog/experimental.git
     fi  
     cp $basedir/experimental/terracotta/terracotta-4.1.1-build.patch $basedir
+    ### Patching terracotta
+    echo "Patching terracotta..."
+    cd $basedir/terracotta-runtime-4.1.1
+    patch -p0 < $basedir/terracotta-4.1.1-build.patch
   fi
 
   echo "Start Building, Installing and Running terracotta server"  
   ########################## INSTALLATION ####################################
-  ### Patching terracotta
-  echo "Patching terracotta..."
-  cd $basedir/terracotta-runtime-4.1.1
-  patch -p0 < $basedir/terracotta-4.1.1-build.patch
   
   # Set HEAP and PERMGEN for Maven
   unset MAVEN_OPTS
