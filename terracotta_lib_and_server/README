@@ -1,1 +1,7 @@
 script to get terracotta lib and start terracotta server
++++++++++Linux environment+++++++++++++
+Nothing. Just run shell script
++++++++++++++++++++++++++++++++++++++++
++++++++++Window environment++++++++++++
+.patch file is in dos format and should be placed at the same folder as .bat file
++++++++++++++++++++++++++++++++++++++++

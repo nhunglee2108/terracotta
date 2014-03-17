@@ -1,0 +1,296 @@
+Index: toolkit-impl/pom.xml
+===================================================================
+--- toolkit-impl/pom.xml	(revision 24401)
++++ toolkit-impl/pom.xml	(working copy)
+@@ -22,12 +22,19 @@
+     <!--
+       XXX: This should be a more narrow dependency (client API likely)
+     -->
++<!--
+     <dependency>
+       <groupId>org.terracotta</groupId>
+       <artifactId>terracotta</artifactId>
+       <version>${project.version}</version>
+       <scope>provided</scope>
+     </dependency>
++    -->
++	<dependency>
++	  <groupId>org.terracotta.internal</groupId>
++	  <artifactId>dso-l1</artifactId>
++	  <version>4.1.1</version>
++	</dependency>
+     <dependency>
+       <groupId>org.terracotta.toolkit</groupId>
+       <artifactId>terracotta-toolkit-api-internal</artifactId>
+Index: pom.xml
+===================================================================
+--- pom.xml	(revision 24401)
++++ pom.xml	(working copy)
+@@ -30,12 +30,11 @@
+     <module>dso-l2-common</module>
+     <module>dso-l1</module>
+     <module>dso-l2</module>
+-    <module>deploy</module>
++    <module>deploy</module> 
+     <module>dso-cluster-api</module>
+ 
+     <module>legacy-test-tree</module>
+     <module>dso-system-tests</module>
+-
+     <module>terracotta-parent</module>
+     <module>terracotta</module>
+     <module>terracotta-l1-parent</module>
+@@ -46,7 +45,6 @@
+     <module>toolkit-impl</module>
+     <module>toolkit-express-impl</module>
+     <module>toolkit-runtime</module>
+-
+     <module>management</module>
+     <module>management-agent</module>
+   </modules>
+Index: toolkit-express-impl/pom.xml
+===================================================================
+--- toolkit-express-impl/pom.xml	(revision 24401)
++++ toolkit-express-impl/pom.xml	(working copy)
+@@ -39,13 +39,21 @@
+       <artifactId>terracotta-license</artifactId>
+       <scope>provided</scope>
+     </dependency>
+-    <dependency>
++    <!--
++    <dependency> -->
+       <!-- XXX: This should really be a dependency on the core TC Client API -->
++<!--
+       <groupId>org.terracotta</groupId>
+       <artifactId>terracotta</artifactId>
+       <version>${project.version}</version>
+       <scope>provided</scope>
+     </dependency>
++    -->
++	<dependency>
++	  <groupId>org.terracotta.internal</groupId>
++	  <artifactId>dso-l1</artifactId>
++	  <version>4.1.1</version>
++	</dependency>
+     <dependency>
+       <groupId>org.terracotta.internal</groupId>
+       <artifactId>common</artifactId>
+Index: build-parent/pom.xml
+===================================================================
+--- build-parent/pom.xml	(revision 24401)
++++ build-parent/pom.xml	(working copy)
+@@ -302,23 +302,23 @@
+       
+       <!-- Glassfish substitutes -->
+       <dependency>
+-        <groupId>gf-3122</groupId>
+-        <artifactId>gf.javax.servlet-api</artifactId>
++        <groupId>com.sun.jersey</groupId>
++        <artifactId>javax.servlet-api</artifactId>
+         <version>3.0.1</version>
+       </dependency>
+       <dependency>
+-        <groupId>gf-3122</groupId>
++        <groupId>com.sun.jersey</groupId>
+         <artifactId>gf.javax.security.auth.message</artifactId>
+         <version>1.0</version>
+       </dependency>  
+       <dependency>
+-        <groupId>gf-3122</groupId>
+-        <artifactId>gf.javax.annotation</artifactId>
++        <groupId>com.sun.jersey</groupId>
++        <artifactId>javax.annotation</artifactId>
+         <version>1.1</version>
+       </dependency>
+       <dependency>
+-        <groupId>gf-3122</groupId>
+-        <artifactId>gf.javax.mail</artifactId>
++        <groupId>com.sun.jersey</groupId>
++        <artifactId>javax.mail</artifactId>
+         <version>1.4.4</version>
+       </dependency>
+ 
+Index: common/pom.xml
+===================================================================
+--- common/pom.xml	(revision 24401)
++++ common/pom.xml	(working copy)
+@@ -131,8 +131,8 @@
+       </activation>
+       <dependencies>
+         <dependency>
+-          <groupId>gf-3122</groupId>
+-          <artifactId>gf.javax.servlet-api</artifactId>
++          <groupId>org.glassfish</groupId>
++          <artifactId>javax.servlet-api</artifactId>
+         </dependency>
+       </dependencies>
+     </profile>
+Index: deploy/pom.xml
+===================================================================
+--- deploy/pom.xml	(revision 24401)
++++ deploy/pom.xml	(working copy)
+@@ -127,20 +127,20 @@
+       </activation>
+       <dependencies>
+         <dependency>
+-          <groupId>gf-3122</groupId>
+-          <artifactId>gf.javax.security.auth.message</artifactId>
++          <groupId>org.glassfish</groupId>
++          <artifactId>javax.security.auth.message</artifactId>
+         </dependency>
+         <dependency>
+-          <groupId>gf-3122</groupId>
+-          <artifactId>gf.javax.annotation</artifactId>
++          <groupId>org.glassfish</groupId>
++          <artifactId>javax.annotation</artifactId>
+         </dependency>
+         <dependency>
+-          <groupId>gf-3122</groupId>
+-          <artifactId>gf.javax.mail</artifactId>
++          <groupId>org.glassfish</groupId>
++          <artifactId>javax.mail</artifactId>
+         </dependency>
+         <dependency>
+-          <groupId>gf-3122</groupId>
+-          <artifactId>gf.javax.servlet-api</artifactId>
++          <groupId>org.glassfish</groupId>
++          <artifactId>javax.servlet-api</artifactId>
+         </dependency>
+       </dependencies>
+     </profile>
+Index: management-agent/management-tsa-impl/pom.xml
+===================================================================
+--- management-agent/management-tsa-impl/pom.xml	(revision 24401)
++++ management-agent/management-tsa-impl/pom.xml	(working copy)
+@@ -37,38 +37,42 @@
+       <artifactId>security-REST</artifactId>
+       <exclusions>
+         <exclusion>
+-          <groupId>com.sun.jersey</groupId>
+-          <artifactId>jersey-core</artifactId>
++          <groupId>gf-3122</groupId>
++          <artifactId>gf.jersey-core</artifactId>
+         </exclusion>
+         <exclusion>
+-          <groupId>com.sun.jersey</groupId>
+-          <artifactId>jersey-json</artifactId>
++          <groupId>gf-3122</groupId>
++          <artifactId>gf.jersey-json</artifactId>
+         </exclusion>
++        <exclusion>
++          <groupId>gf-3122</groupId>
++          <artifactId>gf.jersey-client</artifactId>
++        </exclusion>
+       </exclusions>
+     </dependency>
+     <dependency>
+-      <groupId>gf-3122</groupId>
+-      <artifactId>gf.jersey-core</artifactId>
++      <groupId>com.sun.jersey</groupId>
++      <artifactId>jersey-core</artifactId>
+       <version>1.16</version>
+     </dependency>
+     <dependency>
+-      <groupId>gf-3122</groupId>
+-      <artifactId>gf.jersey-json</artifactId>
++      <groupId>com.sun.jersey</groupId>
++      <artifactId>jersey-json</artifactId>
+       <version>1.16</version>
+     </dependency>
+     <dependency>
+-      <groupId>gf-3122</groupId>
+-      <artifactId>gf.jackson-core-asl</artifactId>
++      <groupId>org.codehaus.jackson</groupId>
++      <artifactId>jackson-core-asl</artifactId>
+       <version>1.9.2</version>
+     </dependency>
+     <dependency>
+-      <groupId>gf-3122</groupId>
+-      <artifactId>gf.jackson-mapper-asl</artifactId>
++      <groupId>org.codehaus.jackson</groupId>
++      <artifactId>jackson-mapper-asl</artifactId>
+       <version>1.9.2</version>
+     </dependency>
+     <dependency>
+-      <groupId>gf-3122</groupId>
+-      <artifactId>gf.jackson-jaxrs</artifactId>
++      <groupId>org.codehaus.jackson</groupId>
++      <artifactId>jackson-jaxrs</artifactId>
+       <version>1.9.2</version>
+     </dependency>
+     <dependency>
+@@ -81,8 +85,8 @@
+       <artifactId>slf4j-log4j12</artifactId>
+     </dependency>
+     <dependency>
+-      <groupId>gf-3122</groupId>
+-      <artifactId>gf.javax.servlet-api</artifactId>
++      <groupId>javax.servlet</groupId>
++      <artifactId>javax.servlet-api</artifactId>
+       <version>3.0.1</version>
+       <scope>provided</scope>
+     </dependency>
+@@ -141,4 +145,15 @@
+     </plugins>
+   </build>
+ 
++<!--
++  <repositories>
++    <repository>
++      <id>terracotta-repository</id>
++      <url>http://www.terracotta.org/download/reflector/releases</url>
++      <releases>
++        <enabled>true</enabled>
++      </releases>
++    </repository>
++  </repositories>
++  -->
+ </project>
+Index: terracotta-l1-parent/pom.xml
+===================================================================
+--- terracotta-l1-parent/pom.xml	(revision 24401)
++++ terracotta-l1-parent/pom.xml	(working copy)
+@@ -26,8 +26,8 @@
+       <version>${project.version}</version>      
+       <exclusions>    
+         <exclusion>
+-          <groupId>gf-3122</groupId>
+-          <artifactId>gf.javax.servlet-api</artifactId>
++          <groupId>org.glassfish</groupId>
++          <artifactId>javax.servlet-api</artifactId>
+         </exclusion>        
+         <exclusion>
+           <groupId>org.slf4j</groupId>
+Index: test-framework/pom.xml
+===================================================================
+--- test-framework/pom.xml	(revision 24401)
++++ test-framework/pom.xml	(working copy)
+@@ -262,20 +262,20 @@
+       </activation>
+       <dependencies>
+         <dependency>
+-          <groupId>gf-3122</groupId>
+-          <artifactId>gf.javax.security.auth.message</artifactId>
++          <groupId>org.glassfish</groupId>
++          <artifactId>javax.security.auth.message</artifactId>
+         </dependency>
+         <dependency>
+-          <groupId>gf-3122</groupId>
+-          <artifactId>gf.javax.annotation</artifactId>
++          <groupId>org.glassfish</groupId>
++          <artifactId>javax.annotation</artifactId>
+         </dependency>
+         <dependency>
+-          <groupId>gf-3122</groupId>
+-          <artifactId>gf.javax.mail</artifactId>
++          <groupId>org.glassfish</groupId>
++          <artifactId>javax.mail</artifactId>
+         </dependency>
+         <dependency>
+-          <groupId>gf-3122</groupId>
+-          <artifactId>gf.javax.servlet-api</artifactId>
++          <groupId>org.glassfish</groupId>
++          <artifactId>javax.servlet-api</artifactId>
+         </dependency>
+       </dependencies>
+     </profile>
